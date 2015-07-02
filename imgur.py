@@ -66,26 +66,22 @@ class imgur:
         p = 0
 
         for x in range(0, xsize):
-            for y in range(0, ysize):
-                r = int( "0x" + text[p+0:p+2], 16 )
-                g = int( "0x" + text[p+2:p+4], 16 )
-                b = int( "0x" + text[p+4:p+6], 16 )
-                p += 6
+                for y in range(0, ysize):
+                        r = int( "0x" + text[p+0:p+2], 16 )
+                        g = int( "0x" + text[p+2:p+4], 16 )
+                        b = int( "0x" + text[p+4:p+6], 16 )
+                        p += 6
 
-                try:
-                    colour = (r, g, b, 255)
+                        colour = (r, g, b, 255)
 
-                    draw.rectangle(
-                        (
-                            ((x * pix),(y * pix)),
-                            (((x * pix) + pix),
-                            (pix + (pix * y)))
-                        ),
-                        fill=colour
-                    )
-
-                except:
-                    pass
+                        draw.rectangle(
+                            (
+                                ((x * pix),(y * pix)),
+                                (((x * pix) + pix),
+                                (pix + (pix * y)))
+                            ),
+                            fill=colour
+                        )
 
         im.save(self.conf['imgPath'], 'PNG')
         return im.save(self.conf['imgPath'], 'PNG')
